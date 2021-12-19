@@ -13,7 +13,6 @@ grpc:
         port: 8090
         tls:
           enabled: false
-    metrics-enabled: false
 
 management:
   endpoints:
