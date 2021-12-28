@@ -1,9 +1,10 @@
 grpc:
   server:
     enable-server-reflection: true #for grpcurl
+    connection-management:
+      max-connection-age: 5m
 #    health:
 #      use-grpc-probe: true
-
 logging.level.com.airwallex: TRACE
 
 management:
