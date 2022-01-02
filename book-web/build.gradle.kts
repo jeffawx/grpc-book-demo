@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("com.airwallex.grpc-spring") version "1.1.3-SNAPSHOT"
+	id("com.airwallex.grpc-spring") version "1.1.3"
 }
 
 group = "com.airwallex.demo"
