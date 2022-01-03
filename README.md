@@ -12,4 +12,7 @@ kubens grpc-book-demo
 # build & push image
 cd book-service && ./build.sh && cd ..
 cd book-web && ./build.sh && cd ..
+
+# install apps
+kubectl apply -f kubernetes.yaml
 ```
