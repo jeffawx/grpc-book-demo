@@ -18,4 +18,7 @@ kubectl apply -f kubernetes.yaml
 
 # (optional) if tilt is used, https://tilt.dev/
 tilt up
+
+# (optional) if istio is enabled
+istioctl dashboard kiali
 ```
