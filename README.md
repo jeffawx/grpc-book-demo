@@ -15,4 +15,7 @@ cd book-web && ./build.sh && cd ..
 
 # install apps
 kubectl apply -f kubernetes.yaml
+
+# (optional) if tilt is used, https://tilt.dev/
+tilt up
 ```
