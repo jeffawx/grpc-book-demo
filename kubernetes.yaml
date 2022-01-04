@@ -46,9 +46,13 @@ metadata:
     app: book-service
 spec:
   type: ClusterIP
-  clusterIP: None
+#  clusterIP: None
   selector:
     app: book-service
+  ports:
+    - protocol: TCP
+      port: 8090
+      targetPort: 8090
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -98,9 +102,12 @@ metadata:
     app: book-web
 spec:
   type: ClusterIP
-  clusterIP: "None"
   selector:
     app: book-web
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
 ---
 apiVersion: apps/v1
 kind: Deployment

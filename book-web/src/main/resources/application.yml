@@ -13,7 +13,7 @@ grpc:
         port: 8090
         tls:
           enabled: false
-        defaultLoadBalancingPolicy: round_robin
+#        defaultLoadBalancingPolicy: round_robin
 
 management:
   endpoints:
