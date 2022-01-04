@@ -10,13 +10,12 @@ kubectl label namespace grpc-book-demo istio-injection=enabled
 kubens grpc-book-demo
 
 # build & push image
-cd book-service && ./build.sh && cd ..
-cd book-web && ./build.sh && cd ..
+./build.sh
 
 # install apps
 kubectl apply -f kubernetes.yaml
 
-# (optional) if tilt is used, https://tilt.dev/
+# alternatively if tilt is used, https://tilt.dev/
 tilt up
 
 # (optional) if istio is enabled
