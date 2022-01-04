@@ -16,6 +16,7 @@ kubens grpc-book-demo
 kubectl apply -f kubernetes.yaml
 
 # alternatively if tilt is used, https://tilt.dev/
+# book-web url: http://localhost:8888/books/
 tilt up
 
 # (optional) if istio is enabled
