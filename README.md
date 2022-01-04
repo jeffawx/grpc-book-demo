@@ -21,6 +21,6 @@ tilt up
 # (optional) if istio is enabled
 istioctl dashboard kiali
 
-# check zipkin
+# check zipkin, http://localhost:9411
 kubectl port-forward "$(kubectl get pod -l app=zipkin -o jsonpath='{.items[0].metadata.name}')" 9411
 ```
