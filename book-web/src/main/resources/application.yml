@@ -28,5 +28,5 @@ management:
 spring:
   application:
     name: book-web
-  zipkin:
-    baseUrl: http://zipkin:9411/
+#  zipkin:
+#    baseUrl: http://zipkin:9411/

@@ -50,7 +50,8 @@ spec:
   selector:
     app: book-service
   ports:
-    - protocol: TCP
+    - name: grpc
+      protocol: TCP
       port: 8090
       targetPort: 8090
 ---
@@ -105,7 +106,8 @@ spec:
   selector:
     app: book-web
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 8080
       targetPort: 8080
 ---

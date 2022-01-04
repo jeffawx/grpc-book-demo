@@ -18,7 +18,7 @@ dependencies {
 	implementation("com.airwallex.demo:book-api:0.0.1-SNAPSHOT")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
-	runtimeOnly("org.springframework.cloud:spring-cloud-sleuth-zipkin")
+	//runtimeOnly("org.springframework.cloud:spring-cloud-sleuth-zipkin")
 }
 
 tasks.withType<KotlinCompile> {
