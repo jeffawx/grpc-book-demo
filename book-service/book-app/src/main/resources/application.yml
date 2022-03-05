@@ -1,3 +1,6 @@
+server:
+  port: 8088
+
 grpc:
   server:
     enable-server-reflection: true #for grpcurl
@@ -25,5 +28,5 @@ management:
 spring:
   application:
     name: book-service
-  zipkin:
-    baseUrl: http://zipkin:9411/
+#  zipkin:
+#    baseUrl: http://zipkin:9411/

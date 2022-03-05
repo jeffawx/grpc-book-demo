@@ -11,17 +11,33 @@ allprojects {
         maven("https://artistry.airwallex.com/repository/lib-release/libs-release-local")
         mavenCentral()
     }
+
+    apply(plugin = "maven-publish")
+
+    publishing {
+        repositories {
+            maven {
+                val repoKey = if (version.toString().endsWith("-SNAPSHOT")) "snapshot" else "release"
+                url = uri("https://artistry.airwallex.com/repository/lib-$repoKey/libs-$repoKey-local/")
+
+                credentials {
+                    username = System.getenv("ARTISTRY_USERNAME")
+                    password = System.getenv("ARTISTRY_PASSWORD")
+                }
+            }
+        }
+    }
 }
 
 subprojects {
-    apply(plugin = "org.gradle.java-library")
-    apply(plugin = "maven-publish")
+    apply(plugin = "kotlin")
+    apply(plugin = "java-library")
 
     java.sourceCompatibility = JavaVersion.VERSION_11
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {
-            freeCompilerArgs = listOf("-Xjsr305=strict")
+            freeCompilerArgs = listOf("-Xjsr305=strict", "-opt-in=kotlin.RequiresOptIn")
             jvmTarget = "11"
         }
     }

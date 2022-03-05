@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("com.airwallex.grpc-spring") version "1.1.3"
+	id("com.airwallex.grpc-spring") version "1.2.1-SNAPSHOT"
 }
 
 group = "com.airwallex.demo"
@@ -15,10 +15,10 @@ repositories {
 }
 
 dependencies {
-	implementation("com.airwallex.demo:book-api:0.0.1-SNAPSHOT")
+	implementation("com.airwallex.demo:book-api:1.0")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
-	runtimeOnly("org.springframework.cloud:spring-cloud-sleuth-zipkin")
+//	runtimeOnly("org.springframework.cloud:spring-cloud-sleuth-zipkin")
 }
 
 tasks.withType<KotlinCompile> {

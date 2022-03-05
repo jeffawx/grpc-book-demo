@@ -1,6 +1,7 @@
 package com.airwallex.demo
 
 import com.airwallex.grpc.annotations.GrpcClient
+import com.github.michaelbull.result.get
 import demo.BookServiceRpc
 import demo.listBookRequest
 import org.slf4j.Logger
@@ -22,7 +23,7 @@ class BookController(
     suspend fun list(): List<Book> {
         logger.info("sending 'list' to book-service")
 
-        return bookService.list(listBookRequest { }).let {
+        return bookService.list(listBookRequest { }).get()!!.let {
             logger.info("get 'list' response from book-service")
 
             it.booksList.map { book ->
@@ -35,7 +36,7 @@ class BookController(
     suspend fun findById(@PathVariable("id") id: Long): Book {
         logger.info("sending 'findById' to book-service")
 
-        return bookService.findById(id).let {
+        return bookService.findById(id).get()!!.let {
             logger.info("get 'findById' response from book-service")
 
             Book(it.id, it.title, it.author)

@@ -1,5 +1,8 @@
 package com.airwallex.demo
 
+import com.airwallex.grpc.error.Error
+import com.github.michaelbull.result.Ok
+import com.github.michaelbull.result.Result
 import demo.BookOuterClass
 import demo.BookServiceRpc
 import demo.book
@@ -22,22 +25,22 @@ class BookService : BookServiceRpc {
         Book(3, "Effective Kotlin: Best practices", "Marcin Moskala")
     )
 
-    override suspend fun list(request: BookOuterClass.ListBookRequest): BookOuterClass.ListBookResponse {
+    override suspend fun list(request: BookOuterClass.ListBookRequest): Result<BookOuterClass.ListBookResponse, Error> {
         logger.info("list request received on host: {}", hostName)
 
-        return listBookResponse {
+        return Ok(listBookResponse {
             allBooks.forEach {
                 books += book(it)
             }
-        }
+        })
     }
 
-    override suspend fun findById(request: Long): BookOuterClass.Book {
+    override suspend fun findById(request: Long): Result<BookOuterClass.Book, Error> {
         logger.info("findById request {}, received on host: {}", request, hostName)
 
         return allBooks.find { it.id == request }
-            ?.let(::book)
-            ?: throw IllegalArgumentException("book not found: $request")
+            ?.let { Ok(book(it)) }
+            ?: Error.notFound()
     }
 
     private fun book(book: Book) =
