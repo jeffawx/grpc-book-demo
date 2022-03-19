@@ -1,3 +1,3 @@
 plugins {
-    id("com.airwallex.grpc") version "1.2.1-SNAPSHOT"
+    id("com.airwallex.grpc") version "1.2.2"
 }

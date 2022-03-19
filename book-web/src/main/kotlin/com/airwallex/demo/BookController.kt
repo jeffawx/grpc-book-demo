@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/books")
 class BookController(
-    @GrpcClient(channel = "book")
+    @GrpcClient("book")
     private val bookService: BookServiceRpc
 ) {
     private val logger: Logger = LoggerFactory.getLogger(javaClass)
