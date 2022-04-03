@@ -1,5 +1,5 @@
 plugins {
-    id("com.airwallex.grpc-spring") version "1.2.2"
+    id("com.airwallex.grpc-spring") version "1.2.3"
 }
 
 dependencies {
